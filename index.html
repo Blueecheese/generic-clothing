@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>ThreadVibe - Nike, Lacoste, Jordan T-Shirts & Tracksuits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 text-white p-4 sticky top-0 z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" aria-label="ThreadVibe Home">
+                <img src="logo.png" alt="ThreadVibe Logo" class="h-12 md:h-16 object-contain" onerror="this.src='https://via.placeholder.com/150x50';">
+            </a>
+            <div class="flex items-center space-x-4">
+                <!-- Cart Button -->
+                <button id="cart-toggle" class="flex items-center text-white hover:text-gray-300" aria-label="View Cart">
+                    <svg class="w-6 h-6 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="cart-count">0</span>
+                </button>
+                <!-- Hamburger Menu -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none" aria-label="Toggle Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <ul id="nav-menu" class="hidden md:flex md:space-x-6">
+                <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+                <li><a href="#shop" class="hover:text-gray-300">Shop</a></li>
+                <li><a href="#about" class="hover:text-gray-300">About</a></li>
+                <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="#home" class="hover:text-gray-300" onclick="toggleMobileMenu()">Home</a></li>
+                <li><a href="#shop" class="hover:text-gray-300" onclick="toggleMobileMenu()">Shop</a></li>
+                <li><a href="#about" class="hover:text-gray-300" onclick="toggleMobileMenu()">About</a></li>
+                <li><a href="#contact" class="hover:text-gray-300" onclick="toggleMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gray-100 flex items-center justify-center text-center min-h-[50vh] md:min-h-screen">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Shop Nike, Lacoste & Jordan at ThreadVibe</h2>
+            <p class="text-lg md:text-xl mb-6">Premium t-shirts and tracksuits for your streetwear vibe.</p>
+            <button onclick="shopNow()" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 text-lg" aria-label="Shop Now">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12">Our Collection</h2>
+            
+            <!-- Nike Section -->
+            <div class="mb-12">
+                <h3 class="text-xl md:text-2xl font-semibold text-center mb-4">Nike</h3>
+                <img src="nikeG.png" alt="Models in Nike T-Shirts and Tracksuits" class="w-full max-w-[1200px] mx-auto h-80 md:h-[400px] object-contain mb-6 rounded-lg cursor-pointer" loading="lazy" onclick="openImageModal('nikeG.png', 'Models in Nike T-Shirts and Tracksuits')" onerror="this.src='https://via.placeholder.com/1200x400';">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Nike T-Shirt 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike1.png" alt="Nike Sportswear T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Sportswear T-Shirt</h4>
+                            <p class="text-gray-600">R499.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tshirt-001"
+                                    data-name="Nike Sportswear T-Shirt"
+                                    data-price="499.99"
+                                    data-image="nike1.png"
+                                    aria-label="Add Nike Sportswear T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike T-Shirt 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike2.png" alt="Nike Dri-FIT T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Dri-FIT T-Shirt</h4>
+                            <p class="text-gray-600">R549.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tshirt-002"
+                                    data-name="Nike Dri-FIT T-Shirt"
+                                    data-price="549.99"
+                                    data-image="nike2.png"
+                                    aria-label="Add Nike Dri-FIT T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike T-Shirt 3 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike3.png" alt="Nike Pro T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Pro T-Shirt</h4>
+                            <p class="text-gray-600">R599.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tshirt-003"
+                                    data-name="Nike Pro T-Shirt"
+                                    data-price="599.99"
+                                    data-image="nike3.png"
+                                    aria-label="Add Nike Pro T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike T-Shirt 4 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike4.png" alt="Nike Club T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Club T-Shirt</h4>
+                            <p class="text-gray-600">R529.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tshirt-004"
+                                    data-name="Nike Club T-Shirt"
+                                    data-price="529.99"
+                                    data-image="nike4.png"
+                                    aria-label="Add Nike Club T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike Tracksuit 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike5.png" alt="Nike Tech Fleece Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Tech Fleece Tracksuit</h4>
+                            <p class="text-gray-600">R1199.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tracksuit-005"
+                                    data-name="Nike Tech Fleece Tracksuit"
+                                    data-price="1199.99"
+                                    data-image="nike5.png"
+                                    aria-label="Add Nike Tech Fleece Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike Tracksuit 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike6.png" alt="Nike Sportswear Tracksuit" class="w-full h-80 md:h-[400px] object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Sportswear Tracksuit</h4>
+                            <p class="text-gray-600">R1299.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tracksuit-006"
+                                    data-name="Nike Sportswear Tracksuit"
+                                    data-price="1299.99"
+                                    data-image="nike6.png"
+                                    aria-label="Add Nike Sportswear Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike Tracksuit 3 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike7.png" alt="Nike Academy Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Academy Tracksuit</h4>
+                            <p class="text-gray-600">R1249.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tracksuit-007"
+                                    data-name="Nike Academy Tracksuit"
+                                    data-price="1249.99"
+                                    data-image="nike7.png"
+                                    aria-label="Add Nike Academy Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Nike Tracksuit 4 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="nike8.png" alt="Nike Essentials Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Nike Essentials Tracksuit</h4>
+                            <p class="text-gray-600">R1349.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="nike-tracksuit-008"
+                                    data-name="Nike Essentials Tracksuit"
+                                    data-price="1349.99"
+                                    data-image="nike8.png"
+                                    aria-label="Add Nike Essentials Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lacoste Section -->
+            <div class="mb-12">
+                <h3 class="text-xl md:text-2xl font-semibold text-center mb-4">Lacoste</h3>
+                <img src="lacosteG.png" alt="Models in Lacoste T-Shirts and Tracksuits" class="w-full max-w-[1200px] mx-auto h-80 md:h-[400px] object-contain mb-6 rounded-lg cursor-pointer" loading="lazy" onclick="openImageModal('lacosteG.png', 'Models in Lacoste T-Shirts and Tracksuits')" onerror="this.src='https://via.placeholder.com/1200x400';">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Lacoste T-Shirt 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="lacoste1.png" alt="Lacoste Classic T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Lacoste Classic T-Shirt</h4>
+                            <p class="text-gray-600">R799.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="lacoste-tshirt-001"
+                                    data-name="Lacoste Classic T-Shirt"
+                                    data-price="799.99"
+                                    data-image="lacoste1.png"
+                                    aria-label="Add Lacoste Classic T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Lacoste T-Shirt 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="lacoste4.png" alt="Lacoste Sport T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Lacoste Sport T-Shirt</h4>
+                            <p class="text-gray-600">R849.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="lacoste-tshirt-002"
+                                    data-name="Lacoste Sport T-Shirt"
+                                    data-price="849.99"
+                                    data-image="lacoste4.png"
+                                    aria-label="Add Lacoste Sport T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Lacoste T-Shirt 3 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="lacoste5.png" alt="Lacoste Slim T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Lacoste Slim T-Shirt</h4>
+                            <p class="text-gray-600">R829.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="lacoste-tshirt-003"
+                                    data-name="Lacoste Slim T-Shirt"
+                                    data-price="829.99"
+                                    data-image="lacoste5.png"
+                                    aria-label="Add Lacoste Slim T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Lacoste Tracksuit 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="lacoste6.png" alt="Lacoste Sport Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Lacoste Sport Tracksuit</h4>
+                            <p class="text-gray-600">R1399.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="lacoste-tracksuit-004"
+                                    data-name="Lacoste Sport Tracksuit"
+                                    data-price="1399.99"
+                                    data-image="lacoste6.png"
+                                    aria-label="Add Lacoste Sport Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Lacoste Tracksuit 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="lacoste7.png" alt="Lacoste Classic Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Lacoste Classic Tracksuit</h4>
+                            <p class="text-gray-600">R1449.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="lacoste-tracksuit-005"
+                                    data-name="Lacoste Classic Tracksuit"
+                                    data-price="1449.99"
+                                    data-image="lacoste7.png"
+                                    aria-label="Add Lacoste Classic Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jordan Section -->
+            <div class="mb-12">
+                <h3 class="text-xl md:text-2xl font-semibold text-center mb-4">Jordan</h3>
+                <img src="jordanG.png" alt="Models in Jordan T-Shirts and Tracksuits" class="w-full max-w-[1200px] mx-auto h-80 md:h-[400px] object-contain mb-6 rounded-lg cursor-pointer" loading="lazy" onclick="openImageModal('jordanG.png', 'Models in Jordan T-Shirts and Tracksuits')" onerror="this.src='https://via.placeholder.com/1200x400';">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Jordan T-Shirt 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="jordan1.png" alt="Jordan Flight T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Jordan Flight T-Shirt</h4>
+                            <p class="text-gray-600">R599.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="jordan-tshirt-001"
+                                    data-name="Jordan Flight T-Shirt"
+                                    data-price="599.99"
+                                    data-image="jordan1.png"
+                                    aria-label="Add Jordan Flight T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Jordan T-Shirt 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="jordan2.png" alt="Jordan Retro T-Shirt" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Jordan Retro T-Shirt</h4>
+                            <p class="text-gray-600">R649.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="jordan-tshirt-002"
+                                    data-name="Jordan Retro T-Shirt"
+                                    data-price="649.99"
+                                    data-image="jordan2.png"
+                                    aria-label="Add Jordan Retro T-Shirt to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Jordan Tracksuit 1 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="jordan3.png" alt="Jordan Essentials Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Jordan Essentials Tracksuit</h4>
+                            <p class="text-gray-600">R1499.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="jordan-tracksuit-003"
+                                    data-name="Jordan Essentials Tracksuit"
+                                    data-price="1499.99"
+                                    data-image="jordan3.png"
+                                    aria-label="Add Jordan Essentials Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Jordan Tracksuit 2 -->
+                    <div class="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition">
+                        <img src="jordan4.png" alt="Jordan Flight Tracksuit" class="w-full h-48 md:h-64 object-contain" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400';">
+                        <div class="p-4">
+                            <h4 class="text-base md:text-lg font-semibold">Jordan Flight Tracksuit</h4>
+                            <p class="text-gray-600">R1399.99</p>
+                            <button class="mt-2 bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-900 w-full add-to-cart"
+                                    data-id="jordan-tracksuit-004"
+                                    data-name="Jordan Flight Tracksuit"
+                                    data-price="1399.99"
+                                    data-image="jordan4.png"
+                                    aria-label="Add Jordan Flight Tracksuit to Cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-16 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">About ThreadVibe</h2>
+            <p class="text-base md:text-lg max-w-2xl mx-auto">ThreadVibe is your go-to for authentic Nike, Lacoste, and Jordan t-shirts and tracksuits. We’re all about premium streetwear that fits your style and budget.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-12 md:py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Get in Touch</h2>
+            <p class="text-base md:text-lg mb-4">Questions? Hit us up at <a href="mailto:support@threadvibe.com" class="text-blue-600 hover:underline">support@threadvibe.com</a></p>
+            <p class="text-base md:text-lg">Follow us on socials for the latest drops!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2025 ThreadVibe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-30">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md mx-4">
+            <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+            <div id="cart-items" class="mb-4"></div>
+            <p id="cart-total" class="text-lg font-semibold mb-4">Total: R0.00</p>
+            <button id="whatsapp-checkout" class="bg-green-500 text-white px-4 py-2 rounded w-full hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed" aria-label="Continue to WhatsApp" disabled>Continue to WhatsApp</button>
+            <button id="close-cart" class="mt-4 text-gray-600 underline" aria-label="Close Cart">Close</button>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-40">
+        <div class="relative max-w-4xl w-full mx-4">
+            <img id="modal-image" src="" alt="" class="w-full h-auto object-contain" loading="lazy">
+            <button id="close-image-modal" class="absolute top-4 right-4 text-white bg-gray-800 rounded-full p-2 hover:bg-gray-900" aria-label="Close Image Modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Cart Logic
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count');
+            const whatsappButton = document.getElementById('whatsapp-checkout');
+
+            cartItems.innerHTML = '';
+            let total = 0;
+            let itemDescriptions = [];
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-600">Your cart is empty.</p>';
+                whatsappButton.disabled = true;
+                whatsappButton.classList.add('opacity-50', 'cursor-not-allowed');
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    itemDescriptions.push(`${item.name} (x${item.quantity}) - R${(item.price * item.quantity).toFixed(2)}`);
+                    cartItems.innerHTML += `
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <p>${item.name} (x${item.quantity})</p>
+                                <p>R${(item.price * item.quantity).toFixed(2)}</p>
+                            </div>
+                            <button class="text-red-600 remove-item" data-index="${index}" aria-label="Remove ${item.name}">Remove</button>
+                        </div>
+                    `;
+                });
+                whatsappButton.disabled = false;
+                whatsappButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            cartTotal.textContent = `Total: R${total.toFixed(2)}`;
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            // WhatsApp Checkout
+            const whatsappNumber = 'YOUR_WHATSAPP_NUMBER'; // e.g., '+27812345678'
+            const message = cart.length > 0 
+                ? `Hi ThreadVibe, I'd like to order:\n${itemDescriptions.join('\n')}\nTotal: R${total.toFixed(2)}\nPlease confirm payment and delivery details.`
+                : 'Hi ThreadVibe, my cart is empty.';
+            const encodedMessage = encodeURIComponent(message);
+            whatsappButton.onclick = () => {
+                window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            };
+
+            // Remove Item Event Listeners
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = parseInt(button.dataset.index);
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart();
+                });
+            });
+        }
+
+        // Add to Cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = {
+                    id: button.dataset.id,
+                    name: button.dataset.name,
+                    price: parseFloat(button.dataset.price),
+                    image: button.dataset.image,
+                    quantity: 1
+                };
+                const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push(item);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+                alert(`${item.name} added to cart!`);
+            });
+        });
+
+        // Cart Modal Toggle
+        const cartModal = document.getElementById('cart-modal');
+        const cartToggle = document.getElementById('cart-toggle');
+        const closeCart = document.getElementById('close-cart');
+
+        cartToggle.addEventListener('click', () => {
+            cartModal.classList.toggle('hidden');
+            updateCart();
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+        });
+
+        // Image Modal Toggle
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeImageModal = document.getElementById('close-image-modal');
+
+        function openImageModal(src, alt) {
+            modalImage.src = src;
+            modalImage.alt = alt;
+            imageModal.classList.remove('hidden');
+            closeImageModal.focus();
+        }
+
+        closeImageModal.addEventListener('click', () => {
+            imageModal.classList.add('hidden');
+        });
+
+        // Close Image Modal with Esc Key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                imageModal.classList.add('hidden');
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Shop Now Button
+        function shopNow() {
+            alert("Welcome to ThreadVibe! Check out our Nike, Lacoste, and Jordan t-shirts and tracksuits.");
+        }
+
+        // Initialize Cart
+        updateCart();
+    </script>
+</body>
+</html>
